@@ -1,0 +1,9 @@
+Hello {{ user.username }},
+
+Thank you for registering with My Hustle!
+
+To activate your account, please click on the following link:
+http://{{ domain }}{{ reverse('activate', kwargs={'uidb64': uid, 'token': token}) }}
+
+Best regards,
+My Hustle Team

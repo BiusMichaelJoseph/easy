@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'userAuth.apps.UserauthConfig',
     'django_rest_passwordreset',
+    'mediaInteractions',
+    'userProfile',
 ]
 
 
@@ -79,8 +81,12 @@ WSGI_APPLICATION = 'myHustle.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'B3e6f6*6d2FE1c113bFBfEF6BDGb536D',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '35236',
     }
 }
 
@@ -137,10 +143,22 @@ REST_FRAMEWORK = {
 
 #Email Backend Configuration
 EMAIL_BACKEND = 'django.core.mail.backend.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'michael@hustler.com'
 
 EMAIL_PORT = 587
 EMAIL_USED_TLS = True
-EMAIL_HOST = 'your_email_host'
-EMAIL_HOST_USER = 'your_email_username'
-EMAIL_HOST_PASSWORD = 'your_email_password'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'myhustleinccommunications@gmail.com'
+EMAIL_HOST_PASSWORD = 'owpq mmwa ufbc rulz'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'userAuth.serializers.CustomUsercreateSerializes',
+        'user': 'userAuth.serializers.CustomUserSerializer',
+    },
+    'SEND_ACTION_EMAIL': True,
+    'ACTIVATION_URL': '#activate/{uid}/{token}',
+}
