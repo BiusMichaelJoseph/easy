@@ -81,12 +81,8 @@ WSGI_APPLICATION = 'myHustle.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'B3e6f6*6d2FE1c113bFBfEF6BDGb536D',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '35236',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3", 
     }
 }
 
