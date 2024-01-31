@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     'mediaInteractions',
     'userProfile',
+    'wallet',
 ]
 
 
@@ -158,3 +159,8 @@ DJOSER = {
     'SEND_ACTION_EMAIL': True,
     'ACTIVATION_URL': '#activate/{uid}/{token}',
 }
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
