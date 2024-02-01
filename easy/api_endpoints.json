@@ -1,0 +1,186 @@
+{
+  "endpoints": {
+    "create_and_list": {
+      "post": {
+        "url": "/api/mediaInteractions/posts/",
+        "methods": ["POST"],
+        "description": "Create a new post"
+      },
+      "like": {
+        "url": "/api/mediaInteractions/likes/",
+        "methods": ["POST"],
+        "description": "Like a post"
+      },
+      "comment": {
+        "url": "/api/mediaInteractions/comments/",
+        "methods": ["POST"],
+        "description": "Comment on a post"
+      },
+      "share": {
+        "url": "/api/mediaInteractions/shares/",
+        "methods": ["POST"],
+        "description": "Share a post"
+      },
+      "bookmark": {
+        "url": "/api/mediaInteractions/bookmarks/",
+        "methods": ["POST"],
+        "description": "Bookmark a post"
+      },
+      "wallet": {
+        "url": "/api/walletTransactions/wallet/",
+        "methods": ["GET"],
+        "description": "Retrieve details of user's wallet"
+      },
+      "transaction": {
+        "url": "/api/walletTransactions/transactions/",
+        "methods": ["GET", "POST"],
+        "description": "List and create transactions"
+      },
+      "job": {
+        "url": "/api/walletTransactions/jobs/",
+        "methods": ["GET", "POST"],
+        "description": "List and create jobs"
+      },
+      "bid": {
+        "url": "/api/walletTransactions/bids/",
+        "methods": ["GET", "POST"],
+        "description": "List and create bids"
+      },
+      "register_user": {
+        "url": "/api/auth/register/",
+        "methods": ["POST"],
+        "description": "Register a new user"
+      },
+      "custom_signup": {
+        "url": "/api/auth/accounts/register/",
+        "methods": ["POST"],
+        "description": "Custom user registration view with email verification."
+      },
+      "user_login": {
+        "url": "/api/auth/login/",
+        "methods": ["POST"],
+        "description": "Log in a user"
+      },
+      "user_logout": {
+        "url": "/api/auth/logout/",
+        "methods": ["POST"],
+        "description": "Log out a user"
+      },
+      "change_password": {
+        "url": "/api/auth/change_password/",
+        "methods": ["POST"],
+        "description": "Change user's password"
+      },
+      "reset_password_email": {
+        "url": "/api/reset-password-email/",
+        "method": "POST",
+        "description": "Initiate a password reset via email",
+        "request_payload": {
+          "email": "string"
+        },
+        "response": {
+          "message": "Password reset email sent.",
+          "error": "string"
+        }
+      },
+        "Password Reset Request":{
+        "url": "/api/userAuth/password-reset-request/",
+        "method": "POST",
+        "description": "Initiate a password reset request."
+      },
+      "Password Reset Confirm":{
+        "url": "/api/userAuth/password-reset/confirm/",
+        "method": "POST",
+        "description": "Confirm a password reset request."
+      },
+      "user_profile_create": {
+        "url": "/api/profile/create/",
+        "methods": ["POST"],
+        "description": "Create a user profile"
+      },
+      "user_profile_retrieve_update": {
+        "url": "/api/profile/view/",
+        "methods": ["GET", "PUT", "PATCH"],
+        "description": "Retrieve and update user profile"
+      }
+     },
+    "retrieve_update_destroy": {
+      "post": {
+        "url": "/api/mediaInteractions/posts/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a post by ID"
+      },
+      "like": {
+        "url": "/api/mediaInteractions/likes/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a like by ID"
+      },
+      "comment": {
+        "url": "/api/mediaInteractions/comments/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a comment by ID"
+      },
+      "share": {
+        "url": "/api/mediaInteractions/shares/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a share by ID"
+      },
+      "bookmark": {
+        "url": "/api/mediaInteractions/bookmarks/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a bookmark by ID"
+      },
+      "wallet": {
+        "url": "/api/walletTransactions/wallet/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a wallet entry by ID"
+      },
+      "transaction": {
+        "url": "/api/walletTransactions/transactions/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a transaction by ID"
+      },
+      "job": {
+        "url": "/api/walletTransactions/jobs/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a job by ID"
+      },
+      "bid": {
+        "url": "/api/walletTransactions/bids/<int:pk>/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete a bid by ID"
+      },
+      "user_profile_retrieve_update": {
+        "url": "/api/profile/view/",
+        "methods": ["GET", "PUT", "PATCH", "DELETE"],
+        "description": "Retrieve, update, or delete user profile"
+      }
+    },
+    "wallet_endpoints": [
+      {
+        "name": "Wallet Detail",
+        "url": "/api/walletTransactions/wallet/",
+        "methods": ["GET"],
+        "description": "Retrieve details of user's wallet"
+      },
+      {
+        "name": "Transaction List/Create",
+        "url": "/api/walletTransactions/transactions/",
+        "methods": ["GET", "POST"],
+        "description": "List and create transactions"
+      },
+      {
+        "name": "Job List/Create",
+        "url": "/api/walletTransactions/jobs/",
+        "methods": ["GET", "POST"],
+        "description": "List and create jobs"
+      },
+      {
+        "name": "Bid List/Create",
+        "url": "/api/walletTransactions/bids/",
+        "methods": ["GET", "POST"],
+        "description": "List and create bids"
+      }
+    ]
+  }
+}

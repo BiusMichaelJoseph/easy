@@ -23,7 +23,7 @@ def password_reset_token_created(sender,instance, reset_password_token, *args, *
     msg = EmailMultiAlternatives(
         "Password Reset for {title}".format(title="My Hustle"),
         emal_plaintext_message,
-        "noreply@yourdomain.com",
+        "noreply@myhustlebox.com",
         [reset_password_token.user.email]
     )
 

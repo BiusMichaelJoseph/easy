@@ -7,5 +7,5 @@ urlpatterns = [
     path('api/auth/', include('userAuth.urls')),
     path('api/profile/', include('userProfile.urls')),
     path('api/mediaInteractions/', include('mediaInteractions.urls')),
-    path('api/wallet/', include('wallet.urls'))
+    path('api/walletTransactions/', include('walletTransactions.urls')),
 ]

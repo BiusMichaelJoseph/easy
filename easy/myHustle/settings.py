@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%o^&7g(0%aca2st4-)mtyvf7&efo01kzzti$_po7ovr@3ouc@_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     'mediaInteractions',
     'userProfile',
-    'wallet',
+    'walletTransactions',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 
@@ -54,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'myHustle.urls'
@@ -160,7 +164,16 @@ DJOSER = {
     'ACTIVATION_URL': '#activate/{uid}/{token}',
 }
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# Add Allauth settings
+AUTHENTICATION_CLASSES = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Add Allauth configurations
+SITE_ID = 1  # Set the correct site ID for your project
+ACCOUNT_USER_MODEL = 'userAuth.CustomUser'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'  # or 'email' or 'username_email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # Adjust as needed
 

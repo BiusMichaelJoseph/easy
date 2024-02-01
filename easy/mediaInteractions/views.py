@@ -4,38 +4,70 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Post, Like, Comment, Share, Bookmark
 from .serializers import PostSerializer, LikeSerializer, CommentSerializer, ShareSerializer, BookmarkSerializer
 
-class PostCreateView(generics.CreateAPIView):
+# Create and List views
+class PostListCreateView(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
-   # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class LikeCreateView(generics.CreateAPIView):
+class LikeListCreateView(generics.ListCreateAPIView):
+    queryset = Like.objects.all()
     serializer_class = LikeSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class CommentCreateView(generics.CreateAPIView):
+class CommentListCreateView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class ShareCreateView(generics.CreateAPIView):
+class ShareListCreateView(generics.ListCreateAPIView):
+    queryset = Share.objects.all()
     serializer_class = ShareSerializer
-   # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class BookmarkCreateView(generics.CreateAPIView):
+class BookmarkListCreateView(generics.ListCreateAPIView):
+    queryset = Bookmark.objects.all()
     serializer_class = BookmarkSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+# Retrieve, Update, and Destroy views
+class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
+
+class LikeDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+    permission_classes = [IsAuthenticated]
+
+class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
+
+class ShareDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Share.objects.all()
+    serializer_class = ShareSerializer
+    permission_classes = [IsAuthenticated]
+
+class BookmarkDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bookmark.objects.all()
+    serializer_class = BookmarkSerializer
+    permission_classes = [IsAuthenticated]
 
